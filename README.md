@@ -1,2 +1,4 @@
 # quiz-app-io
-Aplikacja quizowa na przedmiot Inżynieria Oprogramowania
+Aplikacja quizowa na przedmiot Inżynieria Oprogramowania.
+
+Pozdrawiam mame tate.
