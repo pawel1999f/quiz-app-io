@@ -16,7 +16,7 @@ public class ImportActivityTest {
         ActivityScenario<ImportActivity> scenario = ActivityScenario.launch(ImportActivity.class);
         scenario.onActivity(activity -> {
             int num = activity.getFilesDir().listFiles().length;
-            activity.uploadFile(activity.findViewById(R.id.button3));
+            activity.uploadFile(activity.findViewById(R.id.fileImportButton));
             assertEquals(num+1, activity.getFilesDir().listFiles().length);
         });
     }
