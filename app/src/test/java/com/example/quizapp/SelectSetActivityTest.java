@@ -20,7 +20,7 @@ public class SelectSetActivityTest {
     public void setUp() {
         ActivityScenario<ImportActivity> preScenario = ActivityScenario.launch(ImportActivity.class);
         preScenario.onActivity(activity -> {
-            activity.uploadFile(activity.findViewById(R.id.button3));
+            activity.uploadFile(activity.findViewById(R.id.fileImportButton));
         });
     }
 
