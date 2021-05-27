@@ -13,7 +13,7 @@ import android.view.Window;
 
 import androidx.fragment.app.DialogFragment;
 
-public class PickTypeDialogFragment extends DialogFragment {
+public class EndGameDialogFragment extends DialogFragment {
     /** The system calls this to get the DialogFragment's layout, regardless
      of whether it's being displayed as a dialog or an embedded fragment. */
 //    @Override
@@ -23,40 +23,34 @@ public class PickTypeDialogFragment extends DialogFragment {
 //        return inflater.inflate(container);
 //    }
 
-    String setName;
-    Context cnt;
+    private String setName;
+    private int points;
+    private int maxPoints;
 
-    public PickTypeDialogFragment(String name)
+    public EndGameDialogFragment(String name, int pt, int mpt)
     {
         setName = name;
-        //cnt = c;
+        points = pt;
+        maxPoints = mpt;
     }
 
-    /** The system calls this only when creating the layout in a dialog. */
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // The only reason you might override this method when using onCreateView() is
-        // to modify any dialog characteristics. For example, the dialog includes a
-        // title by default, but your custom layout might not need it. So here you can
-        // remove the dialog title, but you must call the superclass to get the Dialog.
-        //Dialog dialog = super.onCreateDialog(savedInstanceState);
-        //dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage("Jaki tryb?")
-                .setPositiveButton("quickplay", new DialogInterface.OnClickListener() {
+        builder.setMessage("Czy na pewno chcesz zakończyć?")
+                .setPositiveButton("tak", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Intent intent = new Intent(getContext(), QuickplayActivity.class);
+                        Intent intent = new Intent(getContext(), EndScreenActivity.class);
+                        intent.putExtra("POINTS", points);
+                        intent.putExtra("MAX_POINTS", maxPoints);
                         intent.putExtra("SET_NAME", setName);
                         startActivity(intent);
                     }
                 })
-                .setNegativeButton("quiz", new DialogInterface.OnClickListener() {
+                .setNegativeButton("nie", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Intent intent = new Intent(getContext(), QuizActivity.class);
-                        intent.putExtra("SET_NAME", setName);
-                        startActivity(intent);
                     }
                 });
         // Create the AlertDialog object and return it

@@ -36,7 +36,7 @@ public class SelectSetActivity extends AppCompatActivity {
         {
             sets[i] = catalog.listFiles()[i].toString().substring(catalog.listFiles()[i].toString().lastIndexOf('/')+1,
                     catalog.listFiles()[i].toString().lastIndexOf('.'));
-            System.out.println(sets[i]);
+            //System.out.println(sets[i]);
 
             Button bt = new Button(this);
             bt.setText(sets[i]);
@@ -55,8 +55,8 @@ public class SelectSetActivity extends AppCompatActivity {
 //                            .addToBackStack(null).commit();
                     ptdf.show(getSupportFragmentManager(), "lol");
 
-                    Toast.makeText(SelectSetActivity.this, "les gooo",
-                            Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(SelectSetActivity.this, "les gooo",
+                            //Toast.LENGTH_SHORT).show();
                 }
             });
             ((LinearLayout)findViewById(R.id.linearSets)).addView(bt);

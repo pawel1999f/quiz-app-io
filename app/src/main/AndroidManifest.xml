@@ -11,10 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizApp">
+        <activity android:name=".EndScreenActivity"></activity>
         <activity android:name=".QuizActivity" />
         <activity android:name=".QuickplayActivity" />
-        <activity android:name=".SelectSetActivity"
-            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".SelectSetActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ImportActivity"
             android:parentActivityName=".MainActivity">
