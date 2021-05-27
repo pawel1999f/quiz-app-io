@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
                                       }
                                   }
         );
+
+        Button quickplayButton = (Button) findViewById(R.id.quickplayChooseButton);
+        quickplayButton.setOnClickListener(view -> goToQuickplay());
     }
 
     public void goToSets(View view) {
@@ -29,7 +32,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    public void goToQuickplay() {
+        Intent intent = new Intent(this, QuickplayActivity.class);
+        startActivity(intent);
+    }
 
     public void goToImport() {
         Intent intent = new Intent(this, ImportActivity.class);
