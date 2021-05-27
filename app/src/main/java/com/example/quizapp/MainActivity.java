@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToSets(View view) {
         Intent intent = new Intent(this, SelectSetActivity.class);
-        //startActivity(intent);
+        startActivity(intent);
     }
 
 

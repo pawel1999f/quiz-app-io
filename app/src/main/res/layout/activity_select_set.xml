@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".SelectSetActivity">
 
+    <LinearLayout
+        android:id="@+id/linearSets"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="177dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

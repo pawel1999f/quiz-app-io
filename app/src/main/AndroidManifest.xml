@@ -13,7 +13,8 @@
         android:theme="@style/Theme.QuizApp">
         <activity android:name=".QuizActivity" />
         <activity android:name=".QuickplayActivity" />
-        <activity android:name=".SelectSetActivity" />
+        <activity android:name=".SelectSetActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".ImportActivity"
             android:parentActivityName=".MainActivity">
