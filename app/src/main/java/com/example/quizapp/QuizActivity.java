@@ -37,7 +37,8 @@ public class QuizActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         setName = intent.getStringExtra("SET_NAME");
-        questionSet = new QuestionSet();
+        questionSet = QuestionSet.getInstance();
+        questionSet.questionSet.clear();
         currentQuestion = 0;
 
         drawQuestions();

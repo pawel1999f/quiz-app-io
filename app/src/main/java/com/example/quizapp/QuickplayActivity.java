@@ -22,8 +22,11 @@ public class QuickplayActivity extends AppCompatActivity {
 
     public Question question;
 
-    private File questionsFile;
-    private List<Question> questionsList;
+    private QuestionSet questionsSet;
+
+    // Wzorzec projektowy Iteratora.
+    // Znacznie ułatwia pobieranie elementów z listy,
+    // ponieważ lista znajduje się wewnątrz elementu questionsSet
     private ListIterator<Question> questionsListIterator;
 
     private TextView questionText;
@@ -33,26 +36,27 @@ public class QuickplayActivity extends AppCompatActivity {
     private Button answerDButton;
 
     private Button nextButton;
-    private Button returnButton;
 
     private int numberOfAnswers;
     private int numberOfCorrectAnswers;
-    private int selectedAnswer;
+
+    private String setName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quickplay);
 
-        // Get the Intent that started this activity and extract the string
+        // Get the Intent that started this activity and extract the file name
         Intent intent = getIntent();
-        String message = intent.getStringExtra("SET_NAME");
-
-        Toast.makeText(QuickplayActivity.this, message, Toast.LENGTH_SHORT).show();
+        setName = intent.getStringExtra("SET_NAME");
 
         //------------------------------------------------------------
 
-        questionsList = new ArrayList<Question>();
+        questionsSet = QuestionSet.getInstance();
+        // Clearing the list
+        if(questionsSet != null)
+            questionsSet.questionSet.clear();
 
         questionText = (TextView) findViewById(R.id.quickplayQuestion);
         answerAButton = (Button) findViewById(R.id.quickplayAnswerA);
@@ -61,11 +65,10 @@ public class QuickplayActivity extends AppCompatActivity {
         answerDButton = (Button) findViewById(R.id.quickplayAnswerD);
 
         nextButton = (Button) findViewById(R.id.quickplayNext);
-        returnButton = (Button) findViewById(R.id.quickplayReturn);
+        Button returnButton = (Button) findViewById(R.id.quickplayReturn);
 
         numberOfAnswers = 0;
         numberOfCorrectAnswers = 0;
-        selectedAnswer = -1;
 
         //------------------------------------------------------------
 
@@ -86,19 +89,23 @@ public class QuickplayActivity extends AppCompatActivity {
     }
 
     protected void returnToMainMenu(){
+        // Clearing the list
+        if(questionsSet != null)
+            questionsSet.questionSet.clear();
+
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
     protected void goToNextQuestion() {
-        if (selectedAnswer != -1) {
+        if (question.answerPicked != -1) {
             if (nextButton.getText() == "Sprawdź") {
                 checkAnswer();
 
                 nextButton.setText("Następny");
             } else {
                 // Updating the statistics
-                if (isAnswerCorrect(selectedAnswer)) {
+                if (isAnswerCorrect(question.answerPicked)) {
                     numberOfCorrectAnswers++;
                 }
                 numberOfAnswers++;
@@ -108,7 +115,7 @@ public class QuickplayActivity extends AppCompatActivity {
                                 " - " + numberOfCorrectAnswers * 100 / numberOfAnswers + "%",
                         Toast.LENGTH_SHORT).show();
 
-                selectedAnswer = -1;
+                question.answerPicked = -1;
 
                 //Getting new question and updating layout
                 getRandomQuestion();
@@ -127,10 +134,10 @@ public class QuickplayActivity extends AppCompatActivity {
     protected void selectAnswer(int selAns){
         nextButton.setText("Sprawdź");
 
-        selectedAnswer = selAns;
+        question.answerPicked = selAns;
 
         resetButtonsColors();
-        switch(selectedAnswer) {
+        switch(question.answerPicked) {
             case 0:
                 answerAButton.setBackgroundColor(Color.CYAN);
                 break;
@@ -153,7 +160,7 @@ public class QuickplayActivity extends AppCompatActivity {
     }
 
     protected void checkAnswer(){
-        switch(selectedAnswer) {
+        switch(question.answerPicked) {
             case 0:
                 answerAButton.setBackgroundColor(Color.RED);
                 break;
@@ -197,8 +204,8 @@ public class QuickplayActivity extends AppCompatActivity {
     public void getRandomQuestion()
     {
         // If the question list is empty we need to read data from the file
-        if(questionsList.isEmpty()) {
-            questionsFile = new File(getFilesDir(), "Zestawy/ZestawDoTestowania.txt");
+        if(questionsSet.questionSet.isEmpty()) {
+            File questionsFile = new File(getFilesDir().toString() + "/Zestawy/" + setName + ".txt");
 
             try {
 
@@ -217,15 +224,15 @@ public class QuickplayActivity extends AppCompatActivity {
 
                     tempQuestion.correctAnswer = Integer.parseInt(br.readLine());
 
-                    questionsList.add(tempQuestion);
+                    questionsSet.questionSet.add(tempQuestion);
 
                 }
 
                 // Shuffling the list
-                Collections.shuffle(questionsList);
+                Collections.shuffle(questionsSet.questionSet);
 
                 // Getting the ListIterator
-                questionsListIterator = questionsList.listIterator();
+                questionsListIterator = questionsSet.questionSet.listIterator();
 
                 br.close();
 
@@ -238,8 +245,8 @@ public class QuickplayActivity extends AppCompatActivity {
         // If the cursor points at last element - shuffle the list
         // and set the cursor at first element
         if(!questionsListIterator.hasNext()){
-            Collections.shuffle(questionsList);
-            questionsListIterator = questionsList.listIterator();
+            Collections.shuffle(questionsSet.questionSet);
+            questionsListIterator = questionsSet.questionSet.listIterator();
         }
 
         // Assigning the question to be the next element in the list
@@ -268,39 +275,5 @@ public class QuickplayActivity extends AppCompatActivity {
         answerBButton.setBackgroundColor(Color.BLUE);
         answerCButton.setBackgroundColor(Color.BLUE);
         answerDButton.setBackgroundColor(Color.BLUE);
-    }
-
-    // Template for testing, not used
-    public void readFileFromStorage() {
-
-        questionsFile = new File(getFilesDir(), "Zestawy/ZestawDoTestowania.txt");
-
-        try {
-
-            BufferedReader br = new BufferedReader(new FileReader(questionsFile));
-            String line;
-
-            while ((line = br.readLine()) != null) {
-
-                Question tempQuestion = new Question();
-
-                tempQuestion.question = line;
-
-                for (int i = 0; i < 4; i++)
-                    tempQuestion.answers[i] = br.readLine();
-
-                tempQuestion.correctAnswer = Integer.parseInt(br.readLine());
-
-                questionsList.add(tempQuestion);
-
-            }
-
-            br.close();
-
-        } catch (IOException e) {
-            Toast.makeText(this, "Error: " + e, Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-        }
-
     }
 }

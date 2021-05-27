@@ -13,18 +13,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Button button = (Button) findViewById(R.id.button2);
-        button.setOnClickListener(new View.OnClickListener() {
-                                      @Override
-                                      public void onClick(View v) {
-                                          goToImport();
-                                      }
-                                  }
-        );
-
-        Button quickplayButton = (Button) findViewById(R.id.quickplayChooseButton);
-        quickplayButton.setOnClickListener(view -> goToQuickplay());
     }
 
     public void goToSets(View view) {
@@ -32,13 +20,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void goToQuickplay() {
-        Intent intent = new Intent(this, QuickplayActivity.class);
-        startActivity(intent);
-    }
-
-    public void goToImport() {
+    public void goToImport(View view) {
         Intent intent = new Intent(this, ImportActivity.class);
         startActivity(intent);
     }
+
 }

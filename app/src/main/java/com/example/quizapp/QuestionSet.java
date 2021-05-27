@@ -2,15 +2,18 @@ package com.example.quizapp;
 
 import java.util.ArrayList;
 
+// Wzorzec projektowy Singletona.
+// W jednym momencie, w naszej aplikacji może być wybrany jedynie jeden zestaw.
+// Nigdy nie powinna zajść sytuacja kiedy będziemy mieli musieli mieć dwie listy.
+// Lista jest czyszczona i zapełniania przy każdym wejściu do trybu.
+
 public final class QuestionSet {
 
     ArrayList<Question> questionSet;
 
     private static final QuestionSet INSTANCE = new QuestionSet();
 
-    public QuestionSet() {
-        questionSet = new ArrayList<Question>();
-    }
+    private QuestionSet() {questionSet = new ArrayList<Question>();}
 
     public static QuestionSet getInstance() {
         return INSTANCE;

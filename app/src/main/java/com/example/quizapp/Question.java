@@ -4,11 +4,7 @@ public class Question {
     public String question;
     public String[] answers;
     public int correctAnswer;
-//<<<<<<< Updated upstream
 
-    //Question(){
-        //this.answers = new String[4];
-//=======
     public int answerPicked;
 
     public Question()
@@ -23,6 +19,5 @@ public class Question {
         answerPicked = -1;
         correctAnswer = correct;
         question = q;
-//>>>>>>> Stashed changes
     }
 }
