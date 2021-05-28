@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 public class ImportActivityTest {
 
     @Test
-    public void madeNewFile() {
+    public void uploadFile() {
         ActivityScenario<ImportActivity> scenario = ActivityScenario.launch(ImportActivity.class);
         scenario.onActivity(activity -> {
             int num = activity.getFilesDir().listFiles().length;

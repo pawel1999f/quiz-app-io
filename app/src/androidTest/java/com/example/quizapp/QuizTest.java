@@ -40,7 +40,7 @@ public class QuizTest {
 
     @Test
     public void exitQuickplayToMainMenu(){
-        //finds an "exit" button and clicks it. Checks if the statistics menu is displayed
+        //finds an "exit" button and clicks it. Checks if the menu is displayed
         onView(withId(R.id.quickplayReturn)).perform(click());
         onView(withId(R.id.button)).check(matches(isDisplayed()));
     }

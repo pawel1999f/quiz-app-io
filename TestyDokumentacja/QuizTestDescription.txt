@@ -1,0 +1,5 @@
+questionIsDisplayed - checks if the question content is not empty
+
+nextQuestionIsProperlyDisplayed - finds a "next question" button and clicks it. Checks if the next question is not empty
+
+exitQuickplayToMainMenu - finds an "exit" button and clicks it. Checks if the menu is displayed
