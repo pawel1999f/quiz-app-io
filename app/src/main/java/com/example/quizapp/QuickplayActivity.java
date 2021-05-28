@@ -1,7 +1,5 @@
 package com.example.quizapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,13 +7,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.ListIterator;
 
 public class QuickplayActivity extends AppCompatActivity {
@@ -205,7 +203,18 @@ public class QuickplayActivity extends AppCompatActivity {
     {
         // If the question list is empty we need to read data from the file
         if(questionsSet.questionSet.isEmpty()) {
-            File questionsFile = new File(getFilesDir().toString() + "/Zestawy/" + setName + ".txt");
+            File questionsFile;
+            if (setName != null) {
+                // If we have the set's filename (standard)
+                questionsFile = new File(getFilesDir().toString() + "/Zestawy/" + setName + ".txt");
+            } else {
+                // If we don't have the set's filename (when testing)
+                questionsFile = new File(getFilesDir().toString() + "/Zestawy/PlikDoTestowania.txt");
+                if(!questionsFile.exists()){
+                    TestFileCreation temp = new TestFileCreation();
+                    temp.createTestFile(questionsFile);
+                }
+            }
 
             try {
 
