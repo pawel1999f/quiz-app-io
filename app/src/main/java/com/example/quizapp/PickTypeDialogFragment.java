@@ -6,16 +6,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 
 import androidx.fragment.app.DialogFragment;
 
 public class PickTypeDialogFragment extends DialogFragment {
-    /** The system calls this to get the DialogFragment's layout, regardless
-     of whether it's being displayed as a dialog or an embedded fragment. */
 //    @Override
 //    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 //                             Bundle savedInstanceState) {
@@ -32,17 +26,15 @@ public class PickTypeDialogFragment extends DialogFragment {
         //cnt = c;
     }
 
-    /** The system calls this only when creating the layout in a dialog. */
+    // Wzorzec projektowy Budowniczego.
+    // Ułatwia stworzenie okna dialogowego.
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // The only reason you might override this method when using onCreateView() is
-        // to modify any dialog characteristics. For example, the dialog includes a
-        // title by default, but your custom layout might not need it. So here you can
-        // remove the dialog title, but you must call the superclass to get the Dialog.
         //Dialog dialog = super.onCreateDialog(savedInstanceState);
         //dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        // Use the Builder class for convenient dialog construction
+        // Use of the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage("Jaki tryb?")
                 .setPositiveButton("quickplay", new DialogInterface.OnClickListener() {
@@ -59,7 +51,7 @@ public class PickTypeDialogFragment extends DialogFragment {
                         startActivity(intent);
                     }
                 });
-        // Create the AlertDialog object and return it
+
         return builder.create();
     }
 

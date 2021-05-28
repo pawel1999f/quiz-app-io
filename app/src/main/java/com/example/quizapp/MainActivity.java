@@ -1,11 +1,14 @@
 package com.example.quizapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+// SOLID
+// SRP - klasa implementuje jedno Activity
+// OCP - metody odpowiedzialne są za jedną, prostą czynność
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,5 +1,9 @@
 package com.example.quizapp;
 
+// SOLID
+// SRP - klasa ma za zadanie jedynie odwzorowywać jedno pytanie
+// OCP - klasa z pytaniami jest otwarta na rozszerzenia i zamknięta na modyfikacje
+
 public class Question {
     public String question;
     public String[] answers;

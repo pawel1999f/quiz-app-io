@@ -4,10 +4,26 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+// SOLID
+// SRP - klasa ma za zadanie jedynie tworzenie pliku o podanej parametrem nazwie
+// OCP - klasa z pytaniami jest otwarta na rozszerzenia i zamknięta na modyfikacje, ponieważ
+//       możemy łatwo tworzyć nowe wzorce pliku i dodawać je jako metody
+
 public class TestFileCreation {
     TestFileCreation(){}
 
-    void createTestFile(File newFile){
+    void createTestFile(File newFile, int numberOfTemplate){
+        switch(numberOfTemplate){
+            case 0:
+                threeQuestionsTemplate(newFile);
+                break;
+            default:
+                threeQuestionsTemplate(newFile);
+                break;
+        }
+    }
+
+    void threeQuestionsTemplate(File newFile){
 
         try {
             if(newFile.createNewFile()) {
@@ -42,5 +58,6 @@ public class TestFileCreation {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }

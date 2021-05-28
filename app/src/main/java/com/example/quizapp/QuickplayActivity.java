@@ -16,6 +16,11 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.ListIterator;
 
+// SOLID
+// SRP - klasa implementuje jedno Activity
+// OCP - metody odpowiedzialne są za jedną, prostą czynność
+// DIP - Przeglądanie listy zachodzi za pomocą iteratora
+
 public class QuickplayActivity extends AppCompatActivity {
 
     public Question question;
@@ -199,56 +204,60 @@ public class QuickplayActivity extends AppCompatActivity {
         }
     }
 
+    public void readDataFromFile(){
+        File questionsFile;
+        if (setName != null) {
+            // If we have the set's filename (standard)
+            questionsFile = new File(getFilesDir().toString() + "/Zestawy/" + setName + ".txt");
+        } else {
+            // If we don't have the set's filename (when testing)
+            questionsFile = new File(getFilesDir().toString() + "/Zestawy/PlikDoTestowania.txt");
+            if(!questionsFile.exists()){
+                TestFileCreation temp = new TestFileCreation();
+                temp.createTestFile(questionsFile, 0);
+            }
+        }
+
+        try {
+
+            BufferedReader br = new BufferedReader(new FileReader(questionsFile));
+            String line;
+
+            // Reading data from file and putting it into a list
+            while ((line = br.readLine()) != null) {
+
+                Question tempQuestion = new Question();
+
+                tempQuestion.question = line;
+
+                for (int i = 0; i < 4; i++)
+                    tempQuestion.answers[i] = br.readLine();
+
+                tempQuestion.correctAnswer = Integer.parseInt(br.readLine());
+
+                questionsSet.questionSet.add(tempQuestion);
+
+            }
+
+            // Shuffling the list
+            Collections.shuffle(questionsSet.questionSet);
+
+            // Getting the ListIterator
+            questionsListIterator = questionsSet.questionSet.listIterator();
+
+            br.close();
+
+        } catch (IOException e) {
+            Toast.makeText(this, "Error: " + e, Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
+
     public void getRandomQuestion()
     {
         // If the question list is empty we need to read data from the file
         if(questionsSet.questionSet.isEmpty()) {
-            File questionsFile;
-            if (setName != null) {
-                // If we have the set's filename (standard)
-                questionsFile = new File(getFilesDir().toString() + "/Zestawy/" + setName + ".txt");
-            } else {
-                // If we don't have the set's filename (when testing)
-                questionsFile = new File(getFilesDir().toString() + "/Zestawy/PlikDoTestowania.txt");
-                if(!questionsFile.exists()){
-                    TestFileCreation temp = new TestFileCreation();
-                    temp.createTestFile(questionsFile);
-                }
-            }
-
-            try {
-
-                BufferedReader br = new BufferedReader(new FileReader(questionsFile));
-                String line;
-
-                // Reading data from file and putting it into a list
-                while ((line = br.readLine()) != null) {
-
-                    Question tempQuestion = new Question();
-
-                    tempQuestion.question = line;
-
-                    for (int i = 0; i < 4; i++)
-                        tempQuestion.answers[i] = br.readLine();
-
-                    tempQuestion.correctAnswer = Integer.parseInt(br.readLine());
-
-                    questionsSet.questionSet.add(tempQuestion);
-
-                }
-
-                // Shuffling the list
-                Collections.shuffle(questionsSet.questionSet);
-
-                // Getting the ListIterator
-                questionsListIterator = questionsSet.questionSet.listIterator();
-
-                br.close();
-
-            } catch (IOException e) {
-                Toast.makeText(this, "Error: " + e, Toast.LENGTH_SHORT).show();
-                e.printStackTrace();
-            }
+            readDataFromFile();
         }
 
         // If the cursor points at last element - shuffle the list

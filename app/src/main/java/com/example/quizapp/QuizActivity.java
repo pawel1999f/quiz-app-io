@@ -1,28 +1,24 @@
 package com.example.quizapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
-
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.Random;
+
+// SOLID
+// SRP - klasa implementuje jedno Activity
+// OCP - metody odpowiedzialne są za jedną, prostą czynność
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -54,39 +50,36 @@ public class QuizActivity extends AppCompatActivity {
 //            InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);
             File file = new File(getFilesDir().toString() + "/Zestawy/" + setName + ".txt");
             BufferedReader buffreader = new BufferedReader(new FileReader(file));
-            if (true)
+
+            String line;
+            try
             {
-
-                String line;
-                try
+                while ((line = buffreader.readLine()) != null && questionSet.questionSet.size() < 40)
                 {
-                    while ((line = buffreader.readLine()) != null && questionSet.questionSet.size() < 40)
-                    {
-                        Question question = new Question();
-                        question.question = line;
-                        String [] answers = new String[4];
-                        for (int i = 0; i < 4; i++)
-                            answers[i] = buffreader.readLine();
-                        question.answers = answers;
-                        question.correctAnswer = buffreader.readLine().charAt(0) - '0';
+                    Question question = new Question();
+                    question.question = line;
+                    String [] answers = new String[4];
+                    for (int i = 0; i < 4; i++)
+                        answers[i] = buffreader.readLine();
+                    question.answers = answers;
+                    question.correctAnswer = buffreader.readLine().charAt(0) - '0';
 
-                        questionSet.questionSet.add(question);
-                        //System.out.println(question.answers[0] + " " + question.correctAnswer + " " + question.question);
-                        //Toast.makeText(QuizActivity.this, question.answers[0] + " " + question.correctAnswer + " " + question.question,
-                                //Toast.LENGTH_SHORT).show();
+                    questionSet.questionSet.add(question);
+                    //System.out.println(question.answers[0] + " " + question.correctAnswer + " " + question.question);
+                    //Toast.makeText(QuizActivity.this, question.answers[0] + " " + question.correctAnswer + " " + question.question,
+                            //Toast.LENGTH_SHORT).show();
 
-                    }
-
-                    while(questionSet.questionSet.size() > 40)
-                    {
-                        Random r = new Random();
-                        int rand = r.nextInt(questionSet.questionSet.size());
-                        questionSet.questionSet.remove(rand);
-                    }
-                }catch (Exception e)
-                {
-                    e.printStackTrace();
                 }
+
+                while(questionSet.questionSet.size() > 40)
+                {
+                    Random r = new Random();
+                    int rand = r.nextInt(questionSet.questionSet.size());
+                    questionSet.questionSet.remove(rand);
+                }
+            }catch (Exception e)
+            {
+                e.printStackTrace();
             }
         }
         catch (Exception e)
@@ -157,7 +150,8 @@ public class QuizActivity extends AppCompatActivity {
     // create an action bar button
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // R.menu.mymenu is a reference to an xml file named mymenu.xml which should be inside your res/menu directory.
+        // R.menu.mymenu is a reference to an xml file named mymenu.xml
+        // which should be inside res/menu directory.
         // If you don't have res/menu, just create a directory named "menu" inside res
         getMenuInflater().inflate(R.menu.mymenu, menu);
         return super.onCreateOptionsMenu(menu);

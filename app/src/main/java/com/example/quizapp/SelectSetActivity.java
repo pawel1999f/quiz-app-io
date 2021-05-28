@@ -1,24 +1,21 @@
 package com.example.quizapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import java.io.File;
 
+// SOLID
+// SRP - klasa jest odpowiedzialna jedynie za wybieranie zestawu
+
 public class SelectSetActivity extends AppCompatActivity {
 
-    public String sets[];
+    public String[] sets;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +28,10 @@ public class SelectSetActivity extends AppCompatActivity {
     public void loadSets()
     {
         File catalog = new File(getFilesDir(), "Zestawy");
+        if(!catalog.exists()){
+            catalog.mkdir();
+        }
+
         sets = new String[catalog.listFiles().length];
         for(int i = 0; i < catalog.listFiles().length; i++)
         {

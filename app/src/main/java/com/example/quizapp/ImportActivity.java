@@ -1,8 +1,5 @@
 package com.example.quizapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
@@ -10,24 +7,25 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-
-import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+
+// SOLID
+// SRP - klasa implementuje jedno Activity
+// OCP - metody odpowiedzialne są za jedną, prostą czynność
 
 public class ImportActivity extends AppCompatActivity {
 
@@ -35,13 +33,9 @@ public class ImportActivity extends AppCompatActivity {
     private static final int MY_REQUEST_CODE_PERMISSION = 1000;
 
 
-    private Button buttonBrowse;
     private EditText editTextPath;
 
-    private Button buttonImport;
     private EditText newFileNameText;
-
-    private Button buttonReturn;
 
     private Uri selectedFileUri = null;
 
@@ -53,18 +47,22 @@ public class ImportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_import);
 
         this.editTextPath = (EditText) findViewById(R.id.filePathText);
-        this.buttonBrowse = (Button) findViewById(R.id.fileBrowseButton);
+        Button buttonBrowse = (Button) findViewById(R.id.fileBrowseButton);
 
         this.newFileNameText = (EditText) findViewById(R.id.fileNameText);
-        this.buttonImport = (Button) findViewById(R.id.fileImportButton);
+        Button buttonImport = (Button) findViewById(R.id.fileImportButton);
 
-        this.buttonReturn = (Button) findViewById(R.id.importActivityReturnButton);
+        Button buttonReturn = (Button) findViewById(R.id.importActivityReturnButton);
 
-        this.buttonBrowse.setOnClickListener(view -> askPermissionAndBrowseFiles());
-        this.buttonImport.setOnClickListener(view -> tryImportingFile());
+        buttonBrowse.setOnClickListener(view -> askPermissionAndBrowseFiles());
+        buttonImport.setOnClickListener(view -> tryImportingFile());
 
-        this.buttonReturn.setOnClickListener(view -> returnToMainMenu());
+        buttonReturn.setOnClickListener(view -> returnToMainMenu());
 
+    }
+
+    public void setSelectedFileUri(Uri u){
+        selectedFileUri = u;
     }
 
     private void returnToMainMenu(){
@@ -162,6 +160,7 @@ public class ImportActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions, @NonNull int[] grantResults) {
 
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == MY_REQUEST_CODE_PERMISSION) {
             if (grantResults.length > 0
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -172,8 +171,6 @@ public class ImportActivity extends AppCompatActivity {
             }
         }
 
-        // Might need to uncomment if it causes some problems.
-        //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
 
@@ -238,9 +235,6 @@ public class ImportActivity extends AppCompatActivity {
 
                 br.close();
 
-            } catch (FileNotFoundException e) {
-                Toast.makeText(this, "Error: " + e, Toast.LENGTH_SHORT).show();
-                e.printStackTrace();
             } catch (IOException e) {
                 Toast.makeText(this, "Error: " + e, Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
@@ -302,7 +296,7 @@ public class ImportActivity extends AppCompatActivity {
                 while ((line = br.readLine()) != null) {
 
                     Toast.makeText(ImportActivity.this, line, Toast.LENGTH_SHORT).show();
-                    text.append(line + "\n");
+                    text.append(line).append("\n");
 
                 }
                 br.close();
@@ -329,7 +323,7 @@ public class ImportActivity extends AppCompatActivity {
                 while ((line = br.readLine()) != null) {
 
                     Toast.makeText(ImportActivity.this, line, Toast.LENGTH_SHORT).show();
-                    text.append(line + "\n");
+                    text.append(line).append("\n");
                 }
                 br.close();
             } catch (FileNotFoundException e) {
@@ -341,25 +335,6 @@ public class ImportActivity extends AppCompatActivity {
 
         } catch (Exception e){
             Toast.makeText(this, "Error: " + e, Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-        }
-    }
-
-    // Need to be deleted. Used in testing
-    public void uploadFile(View view) {
-
-        // add-write text into file
-        try {
-            FileOutputStream fileout=openFileOutput("plikabc.txt", MODE_PRIVATE);
-            OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
-            outputWriter.write("jeeej");
-            outputWriter.close();
-
-            //display file saved message
-            Toast.makeText(getBaseContext(), "File saved successfully!" + getFilesDir().listFiles().length,
-                    Toast.LENGTH_SHORT).show();
-
-        } catch (Exception e) {
             e.printStackTrace();
         }
     }
