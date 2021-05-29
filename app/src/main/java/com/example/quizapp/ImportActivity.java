@@ -22,6 +22,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Objects;
 
 // SOLID
 // SRP - klasa implementuje jedno Activity
@@ -230,8 +231,15 @@ public class ImportActivity extends AppCompatActivity {
                 InputStream inputStream = getContentResolver().openInputStream(uri);
                 BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
 
-                while ((br.readLine()) != null)
+                String line;
+
+                while ((line = br.readLine()) != null) {
+                    if ((counter + 1) % 6 == 0 && !line.matches("[0-3]")) {
+                        counter = 0;
+                        break;
+                    }
                     counter++;
+                }
 
                 br.close();
 
@@ -254,6 +262,19 @@ public class ImportActivity extends AppCompatActivity {
         }
 
         return isCorrect;
+    }
+
+    public File getSetsDir(){
+        return new File(this.getFilesDir(), "Zestawy");
+    }
+
+    public int getNumberOfSets(){
+        File dir = new File(ImportActivity.this.getFilesDir(), "Zestawy");
+
+        if(!dir.exists())
+            dir.mkdir();
+
+        return Objects.requireNonNull(dir.listFiles()).length;
     }
 
     // Template for testing, not used

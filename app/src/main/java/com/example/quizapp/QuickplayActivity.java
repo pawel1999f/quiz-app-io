@@ -91,6 +91,10 @@ public class QuickplayActivity extends AppCompatActivity {
 
     }
 
+    public QuestionSet getQuestionsSet(){
+        return questionsSet;
+    }
+
     protected void returnToMainMenu(){
         // Clearing the list
         if(questionsSet != null)

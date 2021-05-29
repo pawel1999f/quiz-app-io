@@ -14,13 +14,33 @@ import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.not;
+import static org.junit.Assert.assertNotNull;
+
 
 @RunWith(AndroidJUnit4.class)
-public class QuizTest {
+public class QuickplayActivityTest {
 
     @Rule
     public ActivityScenarioRule<QuickplayActivity> activeRule =
             new ActivityScenarioRule<QuickplayActivity>(QuickplayActivity.class);
+
+    @Test
+    public void questionLoaded(){
+        final Question[] q = {new Question()};
+        activeRule.getScenario().onActivity(activity -> {
+            q[0] = activity.question;
+        });
+        assertNotNull(q[0]);
+    }
+
+    @Test
+    public void questionSetLoaded(){
+        final QuestionSet[] q = new QuestionSet[1];
+        activeRule.getScenario().onActivity(activity -> {
+            q[0] = activity.getQuestionsSet();
+        });
+        assertNotNull(q[0]);
+    }
 
     @Test
     public void questionIsDisplayed(){
@@ -44,4 +64,5 @@ public class QuizTest {
         onView(withId(R.id.quickplayReturn)).perform(click());
         onView(withId(R.id.button)).check(matches(isDisplayed()));
     }
+
 }

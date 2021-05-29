@@ -45,10 +45,24 @@ public class QuizActivity extends AppCompatActivity {
     {
         try
         {
-            //InputStream instream = openFileInput(getFilesDir().toString() + "/Zestawy/" + setName + ".txt");
-//            FileInputStream fis = this.openFileInput(getFilesDir().toString() + "/Zestawy/" + setName + ".txt");
-//            InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);
-            File file = new File(getFilesDir().toString() + "/Zestawy/" + setName + ".txt");
+            /*InputStream instream = openFileInput(getFilesDir().toString() + "/Zestawy/" + setName + ".txt");
+            FileInputStream fis = this.openFileInput(getFilesDir().toString() + "/Zestawy/" + setName + ".txt");
+            InputStreamReader inputStreamReader = new InputStreamReader(fis, StandardCharsets.UTF_8);*/
+
+            File file;
+            if (setName != null) {
+                // If we have the set's filename (standard)
+                file = new File(getFilesDir().toString() + "/Zestawy/" + setName + ".txt");
+            } else {
+                // If we don't have the set's filename (when testing)
+                file = new File(getFilesDir().toString() + "/Zestawy/PlikDoTestowania.txt");
+                if(!file.exists()){
+                    TestFileCreation temp = new TestFileCreation();
+                    temp.createTestFile(file, 0);
+                }
+            }
+
+
             BufferedReader buffreader = new BufferedReader(new FileReader(file));
 
             String line;
