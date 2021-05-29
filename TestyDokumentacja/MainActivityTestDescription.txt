@@ -1,3 +1,0 @@
-clickingImport_shouldStart - clicks the Import button and checks if the new activity is started
-
-clickingSelectSets_shouldStart - clicks the SelectSets button and checks if the new activity is started
