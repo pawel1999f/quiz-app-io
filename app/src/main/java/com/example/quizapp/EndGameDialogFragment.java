@@ -35,8 +35,8 @@ public class EndGameDialogFragment extends DialogFragment {
 
         // Use of the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage("Czy na pewno chcesz zakończyć?")
-                .setPositiveButton("tak", new DialogInterface.OnClickListener() {
+        builder.setMessage("Are you sure you want to end?")
+                .setPositiveButton("yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Intent intent = new Intent(getContext(), EndScreenActivity.class);
                         intent.putExtra("POINTS", points);
@@ -45,7 +45,7 @@ public class EndGameDialogFragment extends DialogFragment {
                         startActivity(intent);
                     }
                 })
-                .setNegativeButton("nie", new DialogInterface.OnClickListener() {
+                .setNegativeButton("no", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                     }
                 });

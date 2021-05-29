@@ -25,8 +25,8 @@ public class EndScreenActivity extends AppCompatActivity {
         int points = intent.getIntExtra("POINTS", -1);
         int maxPoints = intent.getIntExtra("MAX_POINTS", -1);
 
-        String text = "Zdobyłeś " + points + "/" + maxPoints +
-                " punktów (" + (points*100/maxPoints) + "%)!";
+        String text = "You got " + points + "/" + maxPoints +
+                " points (" + (points*100/maxPoints) + "%)!";
         ((TextView)findViewById(R.id.textView)).setText(text);
     }
 

@@ -36,7 +36,7 @@ public class PickTypeDialogFragment extends DialogFragment {
 
         // Use of the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage("Jaki tryb?")
+        builder.setMessage("Choose mode")
                 .setPositiveButton("quickplay", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Intent intent = new Intent(getContext(), QuickplayActivity.class);

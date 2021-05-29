@@ -64,7 +64,7 @@ public class TestFileCreation extends AppCompatActivity {
     }
 
     void createDefaultFile(){
-        File file = new File(TestFileCreation.this.getFilesDir().toString() + "/Zestawy/PlikDoTestowania.txt");
+        File file = new File(TestFileCreation.this.getFilesDir().toString() + "/Sets/PlikDoTestowania.txt");
 
         if(!file.exists()) {
             try {

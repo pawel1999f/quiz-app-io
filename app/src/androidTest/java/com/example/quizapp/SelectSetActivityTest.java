@@ -60,7 +60,7 @@ public class SelectSetActivityTest {
 
         activeRule.getScenario().onActivity(activity -> {
             activity.loadSets();
-            File dir = new File (activity.getFilesDir(),"Zestawy");
+            File dir = new File (activity.getFilesDir(),"Sets");
             assertEquals(dir.listFiles().length, activity.sets.length);
         });
 

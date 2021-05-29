@@ -78,7 +78,7 @@ public class ImportActivity extends AppCompatActivity {
             if (!newFileName.isEmpty()) {
                 if( newFileName.matches("^[a-zA-Z0-9]*$") ){
 
-                    File dir = new File(ImportActivity.this.getFilesDir(), "Zestawy");
+                    File dir = new File(ImportActivity.this.getFilesDir(), "Sets");
 
                     if (!dir.exists()) {
                         dir.mkdir();
@@ -265,11 +265,11 @@ public class ImportActivity extends AppCompatActivity {
     }
 
     public File getSetsDir(){
-        return new File(this.getFilesDir(), "Zestawy");
+        return new File(this.getFilesDir(), "Sets");
     }
 
     public int getNumberOfSets(){
-        File dir = new File(ImportActivity.this.getFilesDir(), "Zestawy");
+        File dir = new File(ImportActivity.this.getFilesDir(), "Sets");
 
         if(!dir.exists())
             dir.mkdir();
@@ -279,7 +279,7 @@ public class ImportActivity extends AppCompatActivity {
 
     // Template for testing, not used
     public void writeFileOnInternalStorage(String sFileName, String sBody){
-        File dir = new File(ImportActivity.this.getFilesDir(), "Zestawy");
+        File dir = new File(ImportActivity.this.getFilesDir(), "Sets");
 
         if (!dir.exists()) {
             dir.mkdir();

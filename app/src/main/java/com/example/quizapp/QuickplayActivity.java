@@ -106,10 +106,10 @@ public class QuickplayActivity extends AppCompatActivity {
 
     protected void goToNextQuestion() {
         if (question.answerPicked != -1) {
-            if (nextButton.getText() == "Sprawdź") {
+            if (nextButton.getText() == "Check") {
                 checkAnswer();
 
-                nextButton.setText("Następny");
+                nextButton.setText("Next");
             } else {
                 // Updating the statistics
                 if (isAnswerCorrect(question.answerPicked)) {
@@ -128,7 +128,7 @@ public class QuickplayActivity extends AppCompatActivity {
                 getRandomQuestion();
                 resetButtonsColors();
                 setLayoutText();
-                nextButton.setText("Sprawdź");
+                nextButton.setText("Check");
 
             }
         } else {
@@ -139,7 +139,7 @@ public class QuickplayActivity extends AppCompatActivity {
     }
 
     protected void selectAnswer(int selAns){
-        nextButton.setText("Sprawdź");
+        nextButton.setText("Check");
 
         question.answerPicked = selAns;
 
@@ -212,10 +212,10 @@ public class QuickplayActivity extends AppCompatActivity {
         File questionsFile;
         if (setName != null) {
             // If we have the set's filename (standard)
-            questionsFile = new File(getFilesDir().toString() + "/Zestawy/" + setName + ".txt");
+            questionsFile = new File(getFilesDir().toString() + "/Sets/" + setName + ".txt");
         } else {
             // If we don't have the set's filename (when testing)
-            questionsFile = new File(getFilesDir().toString() + "/Zestawy/PlikDoTestowania.txt");
+            questionsFile = new File(getFilesDir().toString() + "/Sets/PlikDoTestowania.txt");
             if(!questionsFile.exists()){
                 TestFileCreation temp = new TestFileCreation();
                 temp.createTestFile(questionsFile, 0);

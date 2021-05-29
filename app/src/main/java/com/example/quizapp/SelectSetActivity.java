@@ -27,7 +27,7 @@ public class SelectSetActivity extends AppCompatActivity {
 
     public void loadSets()
     {
-        File catalog = new File(getFilesDir(), "Zestawy");
+        File catalog = new File(getFilesDir(), "Sets");
         if(!catalog.exists()){
             catalog.mkdir();
         }

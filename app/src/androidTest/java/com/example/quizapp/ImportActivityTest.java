@@ -25,7 +25,7 @@ public class ImportActivityTest {
 
         activeRule.getScenario().onActivity(activity -> {
 
-            File dir = new File (activity.getFilesDir(), "Zestawy");
+            File dir = new File (activity.getFilesDir(), "Sets");
             File dst = new File (dir, "UploadTest.txt");
 
             if(!dir.exists()){

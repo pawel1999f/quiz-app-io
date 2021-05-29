@@ -62,7 +62,7 @@ public class QuizActivityTest {
     public void exitQuiz(){
         //finds an "exit" button and clicks it. Checks if the menu is displayed
         onView(withText("end quiz")).perform(click());
-        onView(withText("tak")).perform(click());
+        onView(withText("yes")).perform(click());
         onView(withId(R.id.textView)).check(matches(isDisplayed()));
     }
 }

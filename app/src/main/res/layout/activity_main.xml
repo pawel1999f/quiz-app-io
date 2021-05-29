@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:onClick="goToSets"
-        android:text="Wybierz zestaw"
+        android:text="Choose a set and play"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:onClick="goToImport"
-        android:text="Importuj zestaw"
+        android:text="Import a new set"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
