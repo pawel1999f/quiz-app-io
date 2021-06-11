@@ -43,14 +43,14 @@ public class Test4 {
             new ActivityScenarioRule<>(QuickplayActivity.class);
 
     @Test
-    public void test4_1() {
+    public void checkAnswerQuickplay() {
         onView(withId(R.id.quickplayAnswerA)).perform(click());
         onView(withText("CHECK")).perform(click());
         onView(withId(R.id.quickplayNext)).check(matches(isDisplayed()));
     }
 
     @Test
-    public void test4_2() {
+    public void nextQuestionQuickplay() {
         onView(withId(R.id.quickplayAnswerA)).perform(click());
         onView(withText("CHECK")).perform(click());
         onView(withId(R.id.quickplayNext)).perform(click());

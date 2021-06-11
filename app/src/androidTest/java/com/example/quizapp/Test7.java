@@ -34,19 +34,19 @@ public class Test7 {
                 new ActivityScenarioRule<>(MainActivity.class);
 
         @Test
-        public void test7_1() {
+        public void openImportFromMenu() {
             onView(withId(R.id.button2)).perform(click());
             onView(withId(R.id.fileImportButton)).check(matches(isDisplayed()));
         }
 
         @Test
-        public void test7_2() {
+        public void openSetChooseFromMenu() {
             onView(withId(R.id.button)).perform(click());
             onView(withId(R.id.linearSets)).check(matches(isDisplayed()));
         }
 
         @Test
-        public void test7_3() {
+        public void openQuickplayFromSetChoose() {
             onView(withId(R.id.button)).perform(click());
             onView(withText("PlikDoTestowania")).perform(click());
             onView(withText("quickplay")).perform(click());

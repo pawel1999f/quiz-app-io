@@ -30,6 +30,7 @@ import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertNotNull;
@@ -37,7 +38,7 @@ import static org.junit.Assert.assertThat;
 
 @RunWith(AndroidJUnit4.class)
 @SdkSuppress(minSdkVersion = 18)
-public class Test6 {
+public class Test2 {
 
     private static final String QUIZAPP_PACKAGE
             = "com.example.quizapp";
@@ -46,17 +47,12 @@ public class Test6 {
     private UiDevice device;
 
     @Before
-    public void exitApp(){
+    public void startQuickplayActivity(){
         // Initialize UiDevice instance
         device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
 
         // Start from the home screen
         device.pressHome();
-    }
-
-    @Test
-    public void startApplication(){
-
 
         // Wait for launcher
         final String launcherPackage = device.getLauncherPackageName();
@@ -76,45 +72,83 @@ public class Test6 {
         device.wait(Until.hasObject(By.pkg(QUIZAPP_PACKAGE).depth(0)),
                 LAUNCH_TIMEOUT);
 
+
+        device.wait(Until.hasObject(By.textContains("Choose a set and play")), TIMEOUT);
+
+        UiObject chooseSetButton = device.findObject(new UiSelector()
+                .textContains("Choose a set and play"));
+
+        try {
+            if(chooseSetButton.exists() && chooseSetButton.isEnabled()) {
+                chooseSetButton.click();
+            }
+        } catch (UiObjectNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        device.wait(Until.hasObject(By.textContains("plikdotestowania")), TIMEOUT);
+
+        UiObject setButton = device.findObject(new UiSelector()
+                .textContains("plikdotestowania"));
+
+        try {
+            if(setButton.exists() && setButton.isEnabled()) {
+                setButton.click();
+            }
+        } catch (UiObjectNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+        device.wait(Until.hasObject(By.textContains("quickplay")), TIMEOUT);
+
+        UiObject modeButton = device.findObject(new UiSelector()
+                .textContains("quickplay"));
+
+        try {
+            if(modeButton.exists() && modeButton.isEnabled()) {
+                modeButton.click();
+            }
+        } catch (UiObjectNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void fileLoaded(){
+        device.wait(Until.hasObject(By.res(QUIZAPP_PACKAGE,"quickplayQuestion")), TIMEOUT);
+
+        UiObject2 question = device.findObject(By.res(QUIZAPP_PACKAGE,"quickplayQuestion"));
+
+        assertFalse(question.getText().isEmpty());
+    }
+
+    @Test
+    public void changeSelectedAnswer(){
+        device.wait(Until.hasObject(By.res(QUIZAPP_PACKAGE,"quickplayQuestion")), TIMEOUT);
+
+        UiObject2 answerA = device.findObject(By.res(QUIZAPP_PACKAGE,"quickplayAnswerA"));
+
+        answerA.click();
+
+        UiObject2 answerC = device.findObject(By.res(QUIZAPP_PACKAGE,"quickplayAnswerC"));
+
+        assertTrue(answerC.isClickable());
+    }
+
+    @Test
+    public void exitQuickplay(){
+        device.wait(Until.hasObject(By.res(QUIZAPP_PACKAGE,"quickplayQuestion")), TIMEOUT);
+
+        UiObject2 exitButton = device.findObject(By.res(QUIZAPP_PACKAGE,"quickplayReturn"));
+
+        exitButton.click();
 
         device.wait(Until.hasObject(By.res(QUIZAPP_PACKAGE,"textView8")), TIMEOUT);
 
         UiObject2 check = device.findObject(By.res(QUIZAPP_PACKAGE,"textView8"));
 
         assertEquals("Quiz App", check.getText());
-
     }
 
-    @Test
-    public void closeApplication(){
-
-
-        // Wait for launcher
-        final String launcherPackage = device.getLauncherPackageName();
-        assertThat(launcherPackage, notNullValue());
-        device.wait(Until.hasObject(By.pkg(launcherPackage).depth(0)),
-                LAUNCH_TIMEOUT);
-
-        // Launch the app
-        Context context = ApplicationProvider.getApplicationContext();
-        final Intent intent = context.getPackageManager()
-                .getLaunchIntentForPackage(QUIZAPP_PACKAGE);
-        // Clear out any previous instances
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        context.startActivity(intent);
-
-        // Wait for the app to appear
-        device.wait(Until.hasObject(By.pkg(QUIZAPP_PACKAGE).depth(0)),
-                LAUNCH_TIMEOUT);
-
-
-        device.wait(Until.hasObject(By.res(QUIZAPP_PACKAGE,"textView8")), TIMEOUT);
-
-        device.pressHome();
-
-        device.wait(Until.hasObject(By.pkg(launcherPackage).depth(0)),
-                LAUNCH_TIMEOUT);
-
-        assertTrue(device.hasObject(By.pkg(launcherPackage).depth(0)));
-    }
 }

@@ -42,20 +42,20 @@ public class Test5 {
             new ActivityScenarioRule<>(QuizActivity.class);
 
     @Test
-    public void test5_1() {
+    public void showExitDialogue() {
         onView(withId(R.id.mybutton)).perform(click());
         onView(withText("yes")).check(matches(isDisplayed()));
     }
 
     @Test
-    public void test5_2() {
+    public void quizExit() {
         onView(withId(R.id.mybutton)).perform(click());
         onView(withText("yes")).perform(click());
         onView(withId(R.id.textView)).check(matches(isDisplayed()));
     }
 
     @Test
-    public void test5_3() {
+    public void finalWindowExit() {
         onView(withId(R.id.mybutton)).perform(click());
         onView(withText("yes")).perform(click());
         onView(withId(R.id.button3)).perform(click());
@@ -63,7 +63,7 @@ public class Test5 {
     }
 
     @Test
-    public void test5_4() {
+    public void startQuizAgain() {
         onView(withId(R.id.mybutton)).perform(click());
         onView(withText("yes")).perform(click());
         onView(withId(R.id.button4)).perform(click());
