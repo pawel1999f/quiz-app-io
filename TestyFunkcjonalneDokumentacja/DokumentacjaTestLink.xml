@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite id="" name="" >
+<node_order><![CDATA[]]></node_order>
+<details><![CDATA[]]></details> 
+<testsuite id="5" name="Importowanie quizów #1" >
+<node_order><![CDATA[2]]></node_order>
+<details><![CDATA[]]></details> 
+
+<testcase internalid="6" name="Wybranie poprawnego pliku z dysku">
+	<node_order><![CDATA[1000]]></node_order>
+	<externalid><![CDATA[2]]></externalid>
+	<fullexternalid><![CDATA[1-2]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Użytkownik wybiera poprawny plik spośr&oacute;d listy plik&oacute;w, plik zostaje załadowany.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Poprawnie zainstalowana aplikacja, otwarty widok importowania w aplikacji.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Użytkownik naciska &quot;browse&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Zostaje wyświetlona lista plik&oacute;w</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Użytkownik wybiera poprawny plik</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Plik zostaje załadowany</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+
+<testcase internalid="8" name="Wybranie niepoprawnego pliku z dysku">
+	<node_order><![CDATA[1001]]></node_order>
+	<externalid><![CDATA[3]]></externalid>
+	<fullexternalid><![CDATA[1-3]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Użytkownik pr&oacute;buje wybrać plik o niepoprawnym formatowaniu z dysku. Aplikacja zwraca błąd, a plik nie zostaje załadowany.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Poprawnie zainstalowana aplikacja i otawrty widok importowania.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Użytkownik naciska &quot;browse&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Zostaje wyświetlona lista plik&oacute;w</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Użytkownik wybiera niepoprawnie sformatowany plik</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Aplikacja nie ładuje pliku i wyświetla błąd</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+
+<testcase internalid="10" name="Użytkownik importuje plik">
+	<node_order><![CDATA[1002]]></node_order>
+	<externalid><![CDATA[4]]></externalid>
+	<fullexternalid><![CDATA[1-4]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Użytkownik naciska &quot;Importuj&quot;. Plik zostaje poprawnie skopiowany do pamięci wewnętrznej.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Poprawnie zainstalowana aplikacja, otwarty widok importowania, załadowany poprawny plik.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Użytkownik wybiera poprawną nazwę pliku</p>
+]]></actions>
+	<expectedresults><![CDATA[]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Użytkownik naciska przycisk &quot;Import&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Plik zostaje zapisany w pamięci wewnętrznej aplikacji pod wybraną nazwą</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+
+<testcase internalid="12" name="Użytkownik wybiera niepoprawną nazwę pliku">
+	<node_order><![CDATA[1003]]></node_order>
+	<externalid><![CDATA[5]]></externalid>
+	<fullexternalid><![CDATA[1-5]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Użytkownik wprowadza nazwę niezgodną z przyjętą konwencją i pr&oacute;buje zaimportować plik. Aplikacja zwraca błąd.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Poprawnie zainstalowana aplikacja, otwarty widok importowania, poprawnie załadowany plik.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Użytkownik wprowadza niepoprawną nazwę</p>
+]]></actions>
+	<expectedresults><![CDATA[]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Użytkownik naciska przycisk &quot;Import&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Plik nie zostaje skopiowany, aplikacja wyświetla błąd</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+</testsuite><testsuite id="22" name="Losowanie pytań w trybie quiz #3" >
+<node_order><![CDATA[3]]></node_order>
+<details><![CDATA[]]></details> 
+
+<testcase internalid="35" name="Wylosowanie pytania">
+	<node_order><![CDATA[1000]]></node_order>
+	<externalid><![CDATA[9]]></externalid>
+	<fullexternalid><![CDATA[1-9]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Użytkownik wchodzi w tryb quizu i zostaje poprawnie wylosowane pytanie.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Poprawnie zainstalowana aplikacja, otwarty widok quizu.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Użytkownik wybiera zestaw</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Aplikacja poprawnie losuje pytanie i je wyświetla.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+
+<testcase internalid="38" name="Użytkownik przechodzi do następnego pytania">
+	<node_order><![CDATA[1001]]></node_order>
+	<externalid><![CDATA[10]]></externalid>
+	<fullexternalid><![CDATA[1-10]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[<p>Poprawnie zainstalowana aplikacja, otwarty widok quizu.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+
+<testcase internalid="42" name="Użytkownik zmienia zaznaczoną odpowiedź">
+	<node_order><![CDATA[1002]]></node_order>
+	<externalid><![CDATA[11]]></externalid>
+	<fullexternalid><![CDATA[1-11]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Użytkownik zaznaczył odpowiedź, po chwili zaznaczył inną.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Poprawnie zainstalowana aplikacja, otwarty widok quizu.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Użytkownik zaznacza odpowiedź</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Odpowiedź się podświetla</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Użytkownik zaznacza inną opdowiedź</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Aplikacja poprawnie aktualizuje UI</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+</testsuite><testsuite id="23" name="Losowanie pytań w trybie quickplay #2" >
+<node_order><![CDATA[4]]></node_order>
+<details><![CDATA[]]></details> 
+
+<testcase internalid="24" name="Wylosowanie pytania">
+	<node_order><![CDATA[1000]]></node_order>
+	<externalid><![CDATA[6]]></externalid>
+	<fullexternalid><![CDATA[1-6]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Aplikacja poprawnie ładuje pytanie.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Poprawnie zainstalowana aplikacja, otwarty widok quickplay.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Użytkownik wybiera zestaw</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Aplikacja losuje pytanie z puli i je wyświetla.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+
+<testcase internalid="28" name="Użytkownik zmienia zaznaczoną odpowiedź">
+	<node_order><![CDATA[1001]]></node_order>
+	<externalid><![CDATA[7]]></externalid>
+	<fullexternalid><![CDATA[1-7]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>Użytkownik zaznaczył odpowiedź, po chwili zaznaczył inną.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>Poprawnie zainstalowana aplikacja, otwarty widok quickplay.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Użytkownik zaznacza odpowiedź</p>
+]]></actions>
+	<expectedresults><![CDATA[]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>Użytkownik zaznacza inną odpowiedź.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Aplikacja poprawnie podświetla nowo zaznaczone pytanie.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+
+<testcase internalid="32" name="Użytkownik wychodzi z trybu quickplay">
+	<node_order><![CDATA[1002]]></node_order>
+	<externalid><![CDATA[8]]></externalid>
+	<fullexternalid><![CDATA[1-8]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[<p>Poprawnie zainstalowana aplikacja, otwarty widok quickplay.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>Użytkownik w dowolnym momencie naciska przycisk &quot;Exit&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>Aplikacja powraca do okna startowego</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+</testsuite><testsuite id="45" name="Sprawdzanie odpowiedzi użytkownika #4" >
+<node_order><![CDATA[5]]></node_order>
+<details><![CDATA[]]></details> 
+
+<testcase internalid="49" name="Sprawdzenie odpowiedzi w trybie quickplay">
+	<node_order><![CDATA[1000]]></node_order>
+	<externalid><![CDATA[12]]></externalid>
+	<fullexternalid><![CDATA[1-12]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[<p>Telefon z Androidem, zainstalowana aplikacja, przebywanie w oknie quickplay.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>wybranie 1 z 4 odpowiedzi</p>
+]]></actions>
+	<expectedresults><![CDATA[]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>naciśnięcie przycisku: sprawdź odpowiedź</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>graficzne pokazanie poprawnej odpowiedzi i jeśli użytkownik wybrał złą odpowiedź to oznaczenie tej wybranej jako niepoprawna</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+
+<testcase internalid="53" name="Przejście do następnego pytania w trybie quickplay">
+	<node_order><![CDATA[1001]]></node_order>
+	<externalid><![CDATA[13]]></externalid>
+	<fullexternalid><![CDATA[1-13]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[<p>telefon z Androidem, zainstalowana aplikacja, przebywanie w oknie quickplay</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>następne pytanie</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>wylosowanie i pokazanie się następnego pytania</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+</testsuite><testsuite id="46" name="Zliczanie zdobytych punktów w trybie quiz #5" >
+<node_order><![CDATA[6]]></node_order>
+<details><![CDATA[]]></details> 
+
+<testcase internalid="56" name="Pokazanie okna dialogowego pytającego: czy zakończyć quiz">
+	<node_order><![CDATA[1000]]></node_order>
+	<externalid><![CDATA[14]]></externalid>
+	<fullexternalid><![CDATA[1-14]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[<p>telefon z Androidem, zainstalowana aplikacja, przebywanie w oknie quiz</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>naciśnięcie przycisku: zakończ quiz</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>pokazanie się okna dialogowego na temat zakończenia quizu z opcjami tak lub nie</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+
+<testcase internalid="59" name="Zakończenie quizu">
+	<node_order><![CDATA[1001]]></node_order>
+	<externalid><![CDATA[15]]></externalid>
+	<fullexternalid><![CDATA[1-15]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[<p>telefon z Androidem, zainstalowana aplikacja, przebywanie w oknie quiz</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>naciśnięcie przycisku: zakończ quiz</p>
+]]></actions>
+	<expectedresults><![CDATA[]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>wybranie opcji tak w oknie dialogowym</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>pokazanie się ekranu końcowego pokazującego poprawnie zliczoną liczbę poprawnych, udzielonych przez użytkownika odpowiedzi</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+
+<testcase internalid="63" name="Wyjście z okna końcowego quizu do menu głównego">
+	<node_order><![CDATA[1002]]></node_order>
+	<externalid><![CDATA[16]]></externalid>
+	<fullexternalid><![CDATA[1-16]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[<p>telefon z Androidem, zainstalowana aplikacja, przebywanie w oknie zakończenia quizu</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>naciśnięcie przycisku: wyjdź do menu gł&oacute;wnego</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>przejście do menu gł&oacute;wnego</p>
+
+<p>&nbsp;</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+
+<testcase internalid="66" name="Rozpoczęcie ponownie quizu">
+	<node_order><![CDATA[1003]]></node_order>
+	<externalid><![CDATA[17]]></externalid>
+	<fullexternalid><![CDATA[1-17]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[<p>telefon z Androidem, zainstalowana aplikacja, przebywanie w oknie zakończenia quizu</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>naciśnięcie przycisku: rozpocznij quiz jeszcze raz</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>rozpoczęcie quizu od nowa z ponownie wylosowanymi pytaniami</p>
+
+<p>&nbsp;</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+</testsuite><testsuite id="47" name="Otwieranie i zamykanie aplikacji #6" >
+<node_order><![CDATA[7]]></node_order>
+<details><![CDATA[]]></details> 
+
+<testcase internalid="69" name="Wyłączanie aplikacji">
+	<node_order><![CDATA[1000]]></node_order>
+	<externalid><![CDATA[18]]></externalid>
+	<fullexternalid><![CDATA[1-18]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[<p>telefon z Androidem i zainstalowana aplikacja</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>przejście na stronę gł&oacute;wną aplikacji</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>wyjście z aplikacji</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+
+<testcase internalid="72" name="Włączanie aplikacji">
+	<node_order><![CDATA[1001]]></node_order>
+	<externalid><![CDATA[19]]></externalid>
+	<fullexternalid><![CDATA[1-19]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[<p>telefon z Androidem i zainstalowana aplikacja</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>naciśnięcie na ikonkę aplikacji</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>wejście do aplikacji</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+</testsuite><testsuite id="48" name="Przechodzenie między oknami aplikacji #7" >
+<node_order><![CDATA[8]]></node_order>
+<details><![CDATA[]]></details> 
+
+<testcase internalid="75" name="Przejście pomiędzy oknem menu a oknem Importu">
+	<node_order><![CDATA[1000]]></node_order>
+	<externalid><![CDATA[20]]></externalid>
+	<fullexternalid><![CDATA[1-20]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[<p>telefon z Androidem i zainstalowana aplikacja</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>przejście na stronę gł&oacute;wną aplikacji</p>
+]]></actions>
+	<expectedresults><![CDATA[]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>naciśnięcie przycisku &quot;importuj zestaw&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>przejście do ekranu importowania zestawu</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+
+<testcase internalid="79" name="Przejście pomiędzy oknem menu a oknem wyboru zestawu">
+	<node_order><![CDATA[1001]]></node_order>
+	<externalid><![CDATA[21]]></externalid>
+	<fullexternalid><![CDATA[1-21]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[<p>telefon z Androidem i zainstalowana aplikacja</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>przejście na stronę gł&oacute;wną aplikacji</p>
+]]></actions>
+	<expectedresults><![CDATA[]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>naciśnięcie przycisku &quot;wybierz zestaw&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>przejście do ekranu wyboru zestawu</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+
+<testcase internalid="83" name="Przejście pomiędzy oknem wyboru zestawu a oknem quickplay">
+	<node_order><![CDATA[1002]]></node_order>
+	<externalid><![CDATA[22]]></externalid>
+	<fullexternalid><![CDATA[1-22]]></fullexternalid>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[]]></summary>
+	<preconditions><![CDATA[<p>telefon z Androidem, zainstalowana aplikacja i zaimportowany zestaw do wybrania</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>7</status>
+	<is_open>1</is_open>
+	<active>1</active>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>naciśnięcie na zaimportowany, wybrany zestaw w oknie &quot;wyb&oacute;r zestawu&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>naciśnięcie przycisku: quickplay na oknie dialogowym</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>rozpoczęcie rozgrywki quickplay na wybranym zestawie</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+<keywords><keyword name="OK"><notes><![CDATA[
+Test passed
+]]></notes></keyword>
+</keywords></testcase>
+</testsuite></testsuite>
