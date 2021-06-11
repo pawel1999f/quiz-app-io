@@ -55,26 +55,26 @@ public class SelectSetActivityTest {
         });
     }*/
 
-    @Test
-    public void readAllSets(){
-
-        activeRule.getScenario().onActivity(activity -> {
-            activity.loadSets();
-            File dir = new File (activity.getFilesDir(),"Sets");
-            assertEquals(dir.listFiles().length, activity.sets.length);
-        });
-
-    }
-
-    @Test
-    public void selectSetEnteredQuickplay(){
-
-        onView(withText("PlikDoTestowania")).perform(click());
-        onView(withText("quickplay")).perform(click());
-
-        onView(withId(R.id.quickplayQuestion)).check(matches(isDisplayed()));
-
-    }
+//    @Test
+//    public void readAllSets(){
+//
+//        activeRule.getScenario().onActivity(activity -> {
+//            activity.loadSets();
+//            File dir = new File (activity.getFilesDir(),"Sets");
+//            assertEquals(dir.listFiles().length, activity.sets.length);
+//        });
+//
+//    }
+//
+//    @Test
+//    public void selectSetEnteredQuickplay(){
+//
+//        onView(withText("PlikDoTestowania")).perform(click());
+//        onView(withText("quickplay")).perform(click());
+//
+//        onView(withId(R.id.quickplayQuestion)).check(matches(isDisplayed()));
+//
+//    }
 
     @Test
     public void selectSetEnteredQuiz(){
