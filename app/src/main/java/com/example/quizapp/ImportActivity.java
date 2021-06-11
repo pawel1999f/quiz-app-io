@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -72,6 +73,8 @@ public class ImportActivity extends AppCompatActivity {
     }
 
     private void tryImportingFile() {
+        TextView fileNameText = findViewById(R.id.textView9);
+
         if (selectedFileUri != null) {
             String newFileName = newFileNameText.getText().toString();
 
@@ -88,11 +91,13 @@ public class ImportActivity extends AppCompatActivity {
                     try {
                         if(newFile.createNewFile()) {
                             if(copyFile(newFile)){
+                                fileNameText.setText("Created new file.");
                                 Toast.makeText(ImportActivity.this, "Successfully created new file", Toast.LENGTH_SHORT).show();
                             }else{
                                 Toast.makeText(ImportActivity.this, "Error copying contents of the file", Toast.LENGTH_SHORT).show();
                             }
                         }else{
+                            fileNameText.setText("Filename already exists.");
                             Toast.makeText(ImportActivity.this, "Error. The filename already exists", Toast.LENGTH_SHORT).show();
                         }
                     } catch (IOException e) {
@@ -101,6 +106,7 @@ public class ImportActivity extends AppCompatActivity {
                     }
 
                 } else{
+                    fileNameText.setText("Wrong filename.");
                     Toast.makeText(ImportActivity.this, "Error. \"" + newFileName + "\" is a wrong filename. Please use only alphanumeric name with no spaces", Toast.LENGTH_SHORT).show();
                 }
             } else {
