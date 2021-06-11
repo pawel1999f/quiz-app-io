@@ -1,0 +1,82 @@
+ID 7.1
+Tytuł: Przejście pomiędzy oknem menu a oknem Importu
+Wymagania wstępne: telefon z Androidem i zainstalowana aplikacja
+Kroki do wykonania:
+1. przejście na stronę główną aplikacji
+2. naciśnięcie przycisku "importuj zestaw"
+oczekiwany rezultat: przejście do ekranu importowania zestawu
+
+ID 7.2
+Tytuł: Przejście pomiędzy oknem menu a oknem wyboru zestawu
+Wymagania wstępne: telefon z Androidem i zainstalowana aplikacja
+Kroki do wykonania:
+1. przejście na stronę główną aplikacji
+2. naciśnięcie przycisku "wybierz zestaw"
+oczekiwany rezultat: przejście do ekranu wyboru zestawu
+
+ID 7.3
+Tytuł: Przejście pomiędzy oknem wyboru zestawu a oknem quickplay
+Wymagania wstępne: telefon z Androidem, zainstalowana aplikacja i zaimportowany zestaw do wybrania
+Kroki do wykonania:
+1. naciśnięcie na zaimportowany, wybrany zestaw w oknie "wybór zestawu"
+2. naciśnięcie przycisku: quickplay na oknie dialogowym
+oczekiwany rezultat: rozpoczęcie rozgrywki quickplay na wybranym zestawie
+
+ID 6.1
+Tytuł: Wyłączanie aplikacji
+Wymagania wstępne: telefon z Androidem i zainstalowana aplikacja
+Kroki do wykonania:
+1. przejście na stronę główną apliakcji
+2. naciśnięcie na telefonie przycisku: wstecz
+oczekiwany rezultat: wyjście z aplikacji
+
+ID 6.2
+Tytuł: Włączanie aplikacji
+Wymagania wstępne: telefon z Androidem i zainstalowana aplikacja
+Kroki do wykonania:
+1. naciśnięcie na ikonkę aplikacji
+oczekiwany rezultat: wejście do aplikacji
+
+ID 5.1
+Tytuł: Pokazanie okna dialogowego pytającego: czy zakończyć quiz
+Wymagania wstępne: telefon z Androidem, zainstalowana aplikacja, przebywanie w oknie quiz
+Kroki do wykonania:
+1. naciśnięcie przycisku: zakończ quiz
+oczekiwany rezultat: pokazanie się okna dialogowego na temat zakończenia quizu z opcjami tak lub nie
+
+ID 5.2
+Tytuł: Zakończenei quizu
+Wymagania wstępne: telefon z Androidem, zainstalowana aplikacja, przebywanie w oknie quiz
+Kroki do wykonania:
+1. naciśnięcie przycisku: zakończ quiz
+2. wybranie opcji tak w oknie dialogowym
+oczekiwany rezultat: pokazanie się ekranu końcowego pokazującego poprawnie zliczoną liczbę poprawnych, udzielonych przez użytkownika odpowiedzi
+
+ID 5.3
+Tytuł: Wyjście z okna końcowego quizu do menu głównego
+Wymagania wstępne: telefon z Androidem, zainstalowana aplikacja, przebywanie w oknie zakończenia quizu
+Kroki do wykonania:
+1. naciśnięcie przycisku: wyjdź do menu głównego
+oczekiwany rezultat: przejście do menu głównego
+
+ID 5.4
+Tytuł: Rozpoczęcie ponownie quizu
+Wymagania wstępne: telefon z Androidem, zainstalowana aplikacja, przebywanie w oknie zakończenia quizu
+Kroki do wykonania:
+1. naciśnięcie przycisku: rozpocznij quiz jeszcze raz
+oczekiwany rezultat: rozpoczęcie quizu od nowa z ponownie wylosowanymi pytaniami
+
+ID 4.1
+Tytuł: sprawdzenie odpowiedzi w trybie quickplay
+Wymagania wstępne: telefon z Androidem, zainstalowana aplikacja, przebywanie w oknie quickplay
+Kroki do wykonania:
+1. wybranie 1 z 4 odpowiedzi
+2. naciśnięcie przycisku: sprawdź odpowiedź
+oczekiwany rezultat: graficzne pokazanie poprawnej odpowiedzi i jeśli użytkownik wybrał złą odpowiedź to oznaczenie tej wybranej jako niepoprawna
+
+ID 4.2
+Tytuł: przejście do następnego pytania w trybie quickplay
+Wymagania wstępne: telefon z Androidem, zainstalowana aplikacja, przebywanie w oknie quickplay
+Kroki do wykonania:
+1. naciśnij przycisk: następne pytanie
+oczekiwany rezultat: wylosowanie i pokazanie się następnego pytania
